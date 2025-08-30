@@ -440,13 +440,17 @@ body.dark-mode .dark-toggle-btn {
       color: white;
       font-size: 2rem;
     }
-
+    
     /* Contact Section */
+        body.dark-mode .contact-info {
+          border: 1px solid #fff;
+    /* border-radius: 15px;
+    background-image: linear-gradient(#7c5ff4, #06d6a0), linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); */
+}
     .contact {
       background: var(--dark-color);
       color: white;
     }
-
     .contact-info {
       background: rgba(255, 255, 255, 0.1);
       padding: 2rem;
@@ -569,10 +573,46 @@ body.dark-mode .dark-toggle-btn {
         gap: 1rem;
       }
     }
+
+    /* CSS */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+button#backToTop {
+    border: 0px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    width: 50px;
+    border-radius: 50px;
+    height: 50px;
+    font-size: 29px;
+}
+.back-top-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+/* CSS */
+
+
+
+
   </style>
 </head>
 
 <body>
+
 <div id="loader">
   <div class="loading-line"></div>
 </div>
@@ -864,9 +904,6 @@ body.dark-mode .dark-toggle-btn {
               </div>
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Subject" required>
-            </div>
-            <div class="mb-3">
               <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="btn btn-custom"
@@ -888,7 +925,9 @@ body.dark-mode .dark-toggle-btn {
     </div>
   </footer>
    <!-- Back to top -->
+    <div class="back-top-button">
   <button id="backToTop" class="back-to-top">⬆</button>
+  </div>
 
    <!-- Dark Mode Button -->
   <div class="mode-button">
@@ -1020,22 +1059,6 @@ body.dark-mode .dark-toggle-btn {
     }
     window.addEventListener("load", typeEffect);
 
-    // Dark Mode Toggle
-    const toggleBtn = document.getElementById("darkToggle");
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        toggleBtn.textContent = "☀️ Light Mode";
-      } else {
-        localStorage.setItem("theme", "light");
-        toggleBtn.textContent = "🌙 Dark Mode";
-      }
-    });
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      toggleBtn.textContent = "☀️ Light Mode";
-    }
 
     // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1044,6 +1067,28 @@ body.dark-mode .dark-toggle-btn {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // JS
+const cursor = document.createElement("div");
+cursor.id = "cursor";
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
+});
+
+// Cursor enlarge on hover (for links)
+document.querySelectorAll("a, button").forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    cursor.style.transform = "translate(-50%, -50%) scale(2)";
+  });
+  el.addEventListener("mouseleave", () => {
+    cursor.style.transform = "translate(-50%, -50%) scale(1)";
+  });
+});
+
+
 
     
   </script>
