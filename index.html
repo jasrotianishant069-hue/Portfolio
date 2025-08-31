@@ -279,12 +279,12 @@ body.dark-mode .dark-toggle-btn {
       color: var(--primary-color);
     }
 
-    .btn-primary-custom:hover {
-      background: var(--light-color);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
+   .btn-primary-custom:hover {
+    background: var(--light-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #7c60f4;
+}
     .btn-outline-custom {
       background: transparent;
       color: white;
@@ -576,36 +576,52 @@ body.dark-mode .dark-toggle-btn {
       }
     }
 
-    /* CSS */
-#cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-  mix-blend-mode: difference;
-  z-index: 9999;
+    #cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      mix-blend-mode: difference;
+      z-index: 9999;
+    }
+    button#backToTop {
+        border: 0px;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: #fff;
+        width: 50px;
+        border-radius: 50px;
+        height: 50px;
+        font-size: 29px;
+    }
+    .back-top-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+    }
+
+    /* Skill animation css */
+    .skill-item .progress {
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  height: 8px;
+  overflow: hidden;
+  margin-top: 10px;
 }
-button#backToTop {
-    border: 0px;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    color: #fff;
-    width: 50px;
-    border-radius: 50px;
-    height: 50px;
-    font-size: 29px;
+
+.skill-item .progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #007bff;
+  transition: width 2s ease;
+  border-radius: 20px;
 }
-.back-top-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-}
-/* CSS */
+
 </style>
 
 <body>
@@ -653,98 +669,115 @@ button#backToTop {
 
   <!-- About Section --> 
   <section id="about" class="section-padding">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4">
-          <img src="./Images/About_image.jpg"
-            alt="Nishant Jasrotia" class="img-fluid about-img">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4">
+        <img src="./Images/About_image.jpg" alt="Nishant Jasrotia" class="img-fluid about-img">
+      </div>
+      <div class="col-lg-6">
+        <h3 class="mb-4">Passionate About Creating Digital Excellence</h3>
+        <p class="mb-4">With 2+ years of dedicated experience in web design, I specialize in creating visually
+          stunning and user-friendly websites that drive engagement and deliver results...</p>
+        <p class="mb-4">I believe in the power of good design to transform businesses...</p>
+        <div class="row">
+          <div class="col-6">
+            <h4 class="text-primary counter" data-target="30">0</h4>
+            <p>Projects Completed</p>
+          </div>
+          <div class="col-6">
+            <h4 class="text-primary counter" data-target="98" data-suffix="%">0%</h4>
+            <p>Client Satisfaction</p>
+          </div>
         </div>
-        <div class="col-lg-6">
-          <h3 class="mb-4">Passionate About Creating Digital Excellence</h3>
-          <p class="mb-4">With 2+ years of dedicated experience in web design, I specialize in creating visually
-            stunning and user-friendly websites that drive engagement and deliver results. My expertise lies in
-            transforming complex ideas into clean, intuitive designs that resonate with target audiences.
-            I'm passionate about the intersection of creativity and functionality, where thoughtful design meets
-            seamless user experience. My approach involves deep collaboration with clients to understand their vision
-            and brand identity, then bringing those concepts to life through modern design principles and current web
-            standards.</p>
-          <p class="mb-4">I believe in the power of good design to transform businesses and connect with audiences on a
-            meaningful level. Every project is an opportunity to push creative boundaries while maintaining the highest
-            standards of usability and performance.</p>
-          <div class="row">
-            <div class="col-6">
-              <h4 class="text-primary counter" data-target="30">0</h4>
-              <p>Projects Completed</p>
-            </div>
-            <div class="col-6">
-              <h4 class="text-primary counter" data-target="98" data-suffix="%">0%</h4>
-              <p>Client Satisfaction</p>
-            </div>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="row mt-5">
+      <!-- Skill Item Start -->
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
+          </div>
+          <h5>HTML5</h5>
+          <p>Semantic markup and modern web standards</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="90%"></div>
           </div>
         </div>
       </div>
 
-      <div class="row mt-5">
-        <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-html5"></i>
-            </div>
-            <h5>HTML5</h5>
-            <p>Semantic markup and modern web standards</p>
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-css3-alt"></i>
+          </div>
+          <h5>CSS3</h5>
+          <p>Advanced styling and responsive design</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="85%"></div>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-css3-alt"></i>
-            </div>
-            <h5>CSS3</h5>
-            <p>Advanced styling and responsive design</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-js-square"></i>
-            </div>
-            <h5>JavaScript</h5>
-            <p>Interactive and dynamic user experiences</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-figma"></i>
-            </div>
-            <h5>UI/UX Design</h5>
-            <p>User-centered design principles</p>
-          </div>
-        </div>
-         <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-shopify"></i>
-            </div>
-            <h5>Shopify</h5>
-            <p>User-centered design principles</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-wordpress"></i>
-            </div>
-            <h5>WordPress</h5>
-            <p>User-centered design principles</p>
-          </div>
-        </div>
-    </div>
       </div>
+
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <h5>JavaScript</h5>
+          <p>Interactive and dynamic user experiences</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="80%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-figma"></i>
+          </div>
+          <h5>UI/UX Design</h5>
+          <p>User-centered design principles</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-shopify"></i>
+          </div>
+          <h5>Shopify</h5>
+          <p>Custom theme & e-commerce integration</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-wordpress"></i>
+          </div>
+          <h5>WordPress</h5>
+          <p>Custom themes & plugin integration</p>
+          <div class="progress">
+            <div class="progress-bar" data-percentage="85%"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Skill Item End -->
     </div>
-  </section>
+  </div>
+</section>
+
 
 
   <!-- Portfolio Section -->
@@ -1065,6 +1098,22 @@ button#backToTop {
     backToTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    // Skill Add animation
+    function animateSkills() {
+    const bars = document.querySelectorAll('.progress-bar');
+    bars.forEach(bar => {
+      const rect = bar.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+      if (inView && !bar.classList.contains('animated')) {
+        bar.classList.add('animated');
+        bar.style.width = bar.getAttribute('data-percentage');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animateSkills);
+  window.addEventListener('load', animateSkills);
   </script>
 
 </body>
