@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
     rel="stylesheet">
 
+
 </head>
 
 <style>
@@ -307,7 +308,6 @@
   }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
@@ -364,7 +364,9 @@
   .portfolio {
     background: var(--light-color);
   }
-
+  img.project-images {
+      width: 100%;
+  }
   .portfolio-item {
     position: relative;
     overflow: hidden;
@@ -414,7 +416,9 @@
     border-radius: 25px;
     padding: 8px 20px;
   }
-
+.portfolio-item:hover a.btn {
+    color: #000;
+}
   /* Services Section */
   .service-card {
     background: white;
@@ -682,7 +686,7 @@
       <div class="row align-items-center min-vh-100">
         <div class="col-lg-8">
           <div class="hero-content">
-            <h1>Creative Web Designer</h1>
+            <h1 id="typing"></h1>
             <p class="lead">I create stunning digital experiences that engage users and drive results. Let's bring your
               vision to life with modern, responsive web design.</p>
             <div class="btn-group d-flex flex-wrap gap-3">
@@ -821,7 +825,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+            <img class="project-images" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
               alt="E-commerce Website" class="img-fluid">
             <div class="portfolio-overlay">
               <h5>E-commerce Platform</h5>
@@ -832,7 +836,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop"
+            <img class="project-images" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=300&fit=crop"
               alt="Restaurant Website" class="img-fluid">
             <div class="portfolio-overlay">
               <h5>Gruta 19</h5>
@@ -843,7 +847,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop"
+            <img class="project-images" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop"
               alt="Portfolio Website" class="img-fluid">
             <div class="portfolio-overlay">
               <h5>Coirology</h5>
@@ -1091,17 +1095,16 @@
     });
 
     // 7. Typing Effect
-    const typingElement = document.getElementById("typing");
-    const typingText = "Creative Web Designer | Frontend Developer | UI/UX Enthusiast";
-    let typingIndex = 0;
-    function typeEffect() {
-      if (typingElement && typingIndex < typingText.length) {
-        typingElement.textContent += typingText.charAt(typingIndex);
-        typingIndex++;
-        setTimeout(typeEffect, 100);
+    const text = "Creative Web Designer";
+    let i = 0;
+    function typing() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 100);
       }
     }
-    window.addEventListener("load", typeEffect);
+    typing();
 
     // 8. Custom Cursor
     const cursor = document.createElement("div");
@@ -1133,7 +1136,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Skill Add animation
+    // 10. Skill Add animation
      function animateSkills() {
     const bars = document.querySelectorAll('.progress-bar');
     bars.forEach(bar => {
@@ -1148,6 +1151,8 @@
 
   window.addEventListener('scroll', animateSkills);
   window.addEventListener('load', animateSkills);
+  
+  
   </script>
 
 </body>
