@@ -648,20 +648,7 @@
     background-color: #007bff;
     transition: width 2s ease;
     border-radius: 20px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 8px;
-    color: white;
-    font-weight: bold;
   }
-
-.progress-percent {
-  position: absolute;
-  right: 8px;
-  font-size: 0.8rem;
-}
 
 </style>
 
@@ -1160,22 +1147,7 @@
       const inView = rect.top < window.innerHeight && rect.bottom >= 0;
       if (inView && !bar.classList.contains('animated')) {
         bar.classList.add('animated');
-        const target = +bar.getAttribute('data-percentage');
-        const percentSpan = bar.querySelector('.progress-percent');
-        bar.style.width = target + '%';
-        let count = 0;
-        const speed = 20;
-        const step = Math.ceil(target / 50);
-
-        const counter = setInterval(() => {
-          if (count >= target) {
-            percentSpan.textContent = target + '%';
-            clearInterval(counter);
-          } else {
-            count += step;
-            percentSpan.textContent = count + '%';
-          }
-        }, speed);
+        bar.style.width = bar.getAttribute('data-percentage');
       }
     });
   }
